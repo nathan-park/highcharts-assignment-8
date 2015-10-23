@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <title>Employment In the United States</title>
+        <link href="styles/main.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"> </script>
+        <script src="js/highcharts.js"></script>
+</head>
+<body>
+
+<h1>Employment In the United States</h1>
+<!-- add the div and the code below this comment -->
+<div id="container" style="width:100%; height:400px;"></div>
+<p>Source: Bureau of Labor Statistics, <a href="http://www.bls.gov/cps/cpsaat01.htm">Employment status of the civilian noninstitutional population, 1944 to date</a></p>
+
+<div id="container2" style="width:100%; height:500px;"></div>
+<p>Source: Bureau of Labor Statistics, <a href="http://www.bls.gov/cps/cpsaat01.htm">Employment status of the civilian noninstitutional population, 1944 to date</a></p>
+
+<article>
+<p><em>by Nathan Park</em></p>
+
+<p>Employment is one of the most important issues among the American people.  As our labor force continues to grow, it is important that more jobs are available so that we are not left with an overwhelming population of the unemployed.  The percentage of unemployed civilians varies depending on the state of the economy, but over the past half decade we have seen a gradual decrease in the percentage of unemployed population to the labor force population.  This may look to be a good sign, but other factors can determine the unemployment rate.  However, in looking at the total population of the labor force, the unemployment rate as gone down significantly in relation to the growth of the total labor force, suggesting that while more people are entering the labor force, even more are able to find jobs.</p>
+
+</article>
+
+<script>
+$(function () {
+    $('#container').highcharts({
+        title: {
+            text: 'Unemployment In Labor Force',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: bls.gov',
+            x: -20
+        },
+        xAxis: {
+            title: {
+                text: 'Year'
+            },
+            categories: ['2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014']
+        },
+        yAxis: {
+            title: {
+                text: 'Percentage of Labor Force'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '%'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'Unemployment',
+            data: [5.1, 4.6, 4.6, 5.8, 9.3, 9.6, 8.9, 8.1, 7.4, 6.2]
+        }]
+    });
+});
+$(function () {
+    $('#container2').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Civilian Labor Force'
+        },
+        xAxis: {
+            categories: ['2010', '2011', '2012', '2013', '2014']
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Population'
+            }
+        },
+        legend: {
+            reversed: true
+        },
+        plotOptions: {
+            series: {
+                stacking: 'normal'
+            }
+        },
+        series: [{
+            name: 'Unemployed',
+            data: [14825, 13747, 12506, 11460, 9617]
+        }, {
+            name: 'Employed',
+            data: [139064, 139869, 142469, 143929, 146305]
+        }]
+    });
+});
+</script>
+
+</body>
+</html>

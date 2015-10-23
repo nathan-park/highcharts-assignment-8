@@ -1,0 +1,12 @@
+body {
+	font-family: "Arial", sans-serif;
+	margin: 5%;
+}
+
+article {
+	width: 75%;
+	float: left;
+	padding: 2em 3em;
+	background: #d3d3d3;
+	margin: 5%;
+}
